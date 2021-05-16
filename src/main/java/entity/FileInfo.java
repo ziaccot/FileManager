@@ -1,5 +1,6 @@
 package entity;
 
+import properties.DefaultProperties;
 import properties.ErrorProperties;
 
 import java.io.IOException;
@@ -7,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 
 public class FileInfo {
     private String fileName;
@@ -35,16 +37,18 @@ public class FileInfo {
         this.fileName = fileName;
     }
 
-    public long getFileSize() {
-        return fileSize;
+    public String getFileSize() {
+        if(fileSize<0)
+            return "[DIR]";
+        return Long.toString(fileSize) +" bytes";
     }
 
     public void setFileSize(long fileSize) {
         this.fileSize = fileSize;
     }
 
-    public LocalDateTime getLastModified() {
-        return lastModified;
+    public String getLastModified() {
+        return lastModified.format(DateTimeFormatter.ofPattern(DefaultProperties.DateTimePattern));
     }
 
     public void setLastModified(LocalDateTime lastModified) {
