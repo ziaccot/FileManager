@@ -1,6 +1,7 @@
 package gui;
 
 import actions.BtnUpClickAction;
+import actions.ItemChangedAction;
 import actions.TableMouseClickAction;
 
 import javax.swing.*;
@@ -26,5 +27,6 @@ public class DataPanel extends JPanel {
     private void addActions() {
         dataTable.addMouseListener(new TableMouseClickAction(dataTable, panelHeader));
         panelHeader.btnUp.addActionListener(new BtnUpClickAction(dataTable, panelHeader));
+        panelHeader.diskSource.addActionListener(new ItemChangedAction(dataTable, panelHeader));
     }
 }
