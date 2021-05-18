@@ -9,15 +9,14 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.nio.file.CopyOption;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class BtnCopyClickAction implements ActionListener {
+public class BtnMoveClickAction implements ActionListener {
     private DataPanel leftPanel, rightPanel;
 
-    public BtnCopyClickAction(DataPanel leftPanel, DataPanel rightPanel){
+    public BtnMoveClickAction(DataPanel leftPanel, DataPanel rightPanel){
         this.leftPanel = leftPanel;
         this.rightPanel = rightPanel;
     }
@@ -50,8 +49,9 @@ public class BtnCopyClickAction implements ActionListener {
             Path destination = Path.of(destinationPath + "\\"+model.getValueAt(sourceTable.getSelectedRow(),0).toString());
 
             try {
-                Files.copy(source, destination);
+                Files.move(source, destination);
                 destinationTable.updateData(Path.of(destinationPath).toAbsolutePath());
+                sourceTable.updateData(Path.of(sourcePath).toAbsolutePath());
             }catch (FileAlreadyExistsException existsException){
                 JOptionPane.showMessageDialog(sourceTable, ErrorProperties.FileExists);
             }catch (IOException exception){
