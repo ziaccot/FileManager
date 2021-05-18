@@ -1,5 +1,7 @@
 package gui;
 
+import actions.BtnCopyClickAction;
+import actions.BtnUpClickAction;
 import properties.DefaultProperties;
 
 import javax.swing.*;
@@ -25,5 +27,11 @@ public class MainPanel extends JPanel {
         this.setLayout(new BorderLayout());
         this.add(panel, BorderLayout.CENTER);
         this.add(buttonBar, BorderLayout.SOUTH);
+
+        addActions();
+    }
+
+    private void addActions() {
+        buttonBar.btnCopy.addActionListener(new BtnCopyClickAction(leftPanel, rightPanel));
     }
 }

@@ -22,5 +22,10 @@ public class ButtonBar extends JPanel {
         this.add(btnMove);
         this.add(btnMkDir);
         this.add(btnDelete);
+
+        btnDelete.setFocusable(false);
+        btnMkDir.setFocusable(false);
+        btnMove.setFocusable(false);
+        btnCopy.setFocusable(false);
     }
 }

@@ -26,5 +26,9 @@ public class PanelHeader extends JPanel {
         this.add(diskSource);
         this.add(pathSource);
         this.add(btnUp);
+
+        btnUp.setFocusable(false);
+        pathSource.setFocusable(false);
+        diskSource.setFocusable(false);
     }
 }
