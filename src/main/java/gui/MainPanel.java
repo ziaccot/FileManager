@@ -1,6 +1,7 @@
 package gui;
 
 import actions.BtnCopyClickAction;
+import actions.BtnMkDirClickAction;
 import actions.BtnMoveClickAction;
 import actions.BtnUpClickAction;
 import properties.DefaultProperties;
@@ -35,5 +36,6 @@ public class MainPanel extends JPanel {
     private void addActions() {
         buttonBar.btnCopy.addActionListener(new BtnCopyClickAction(leftPanel, rightPanel));
         buttonBar.btnMove.addActionListener(new BtnMoveClickAction(leftPanel, rightPanel));
+        buttonBar.btnMkDir.addActionListener(new BtnMkDirClickAction(leftPanel, rightPanel));
     }
 }
