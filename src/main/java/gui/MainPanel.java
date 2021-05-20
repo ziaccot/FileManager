@@ -1,9 +1,6 @@
 package gui;
 
-import actions.BtnCopyClickAction;
-import actions.BtnMkDirClickAction;
-import actions.BtnMoveClickAction;
-import actions.BtnUpClickAction;
+import actions.*;
 import properties.DefaultProperties;
 
 import javax.swing.*;
@@ -37,5 +34,6 @@ public class MainPanel extends JPanel {
         buttonBar.btnCopy.addActionListener(new BtnCopyClickAction(leftPanel, rightPanel));
         buttonBar.btnMove.addActionListener(new BtnMoveClickAction(leftPanel, rightPanel));
         buttonBar.btnMkDir.addActionListener(new BtnMkDirClickAction(leftPanel, rightPanel));
+        buttonBar.btnDelete.addActionListener(new BtnDelClickAction(leftPanel, rightPanel));
     }
 }
